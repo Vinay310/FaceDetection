@@ -36,7 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
@@ -54,7 +53,7 @@ class FaceDetectionActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FaceDetectionTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
                     AppContent()
                 }
             }
@@ -147,7 +146,7 @@ fun detectFace(bitmap: Bitmap?, context: Context) {
     val result = image?.let {
         detector.process(it).addOnSuccessListener { faces ->
             var resultText = ""
-            var i = 1;
+            var i = 1
             for (face in faces) {
                 resultText =
                     "Face Number $i" + "\nSmile : ${face.smilingProbability?.times(100)}" + "" +
