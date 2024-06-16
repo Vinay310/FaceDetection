@@ -1,6 +1,7 @@
 package com.net.facedetection
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -34,6 +35,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import coil.compose.rememberAsyncImagePainter
 import com.google.mlkit.vision.common.InputImage
@@ -107,6 +109,12 @@ fun AppContent() {
         }) {
             Text(text = "Captured Image From Camera")
         }
+       Button(onClick = {
+           val intent = Intent(context, TextRecognitionActivity::class.java)
+           context.startActivity(intent)
+       }) {
+           Text(text = "Text Recognition")
+       } 
     }
     if (capturedImageUri.toString().isNotEmpty()) {
         Image(
@@ -134,6 +142,11 @@ fun convertImageUriToBitmap(imageUri: Uri?, context: Context): Bitmap? {
         Log.e("TAG", "Error converting image URI to bitmap: $e")
         null
     }
+}
+
+@Composable
+fun NavigateToTextRecognition() {
+   
 }
 
 fun detectFace(bitmap: Bitmap?, context: Context) {

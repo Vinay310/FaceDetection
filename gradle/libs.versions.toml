@@ -13,6 +13,7 @@ mlKitVersion = "16.1.6"
 appcompat = "1.6.1"
 material = "1.10.0"
 activity = "1.9.0"
+googleServiceVision="20.1.3"
 constraintlayout = "2.1.4"
 
 [libraries]
@@ -36,6 +37,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+google-playservices-vision={group ="com.google.android.gms",name = "play-services-vision" , version.ref = "googleServiceVision"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
